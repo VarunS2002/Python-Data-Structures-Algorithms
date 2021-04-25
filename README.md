@@ -1,2 +1,2 @@
-# Data_Structures_SYIT
-Repository for all practicals of Data Structures in SYIT 
+# Python-Data-Structures-Algorithms
+Repository for Data Structures and Algorithms in Python 
