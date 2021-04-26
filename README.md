@@ -12,3 +12,9 @@ These programs can be imported and used as modules in your programs.
     - Subtraction
     - Multiplication
     - Transpose
+
+2. stack.py
+    - Stack Data Structure
+    - Push
+    - Pop
+    - Top
