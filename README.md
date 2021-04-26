@@ -18,3 +18,10 @@ These programs can be imported and used as modules in your programs.
     - Push
     - Pop
     - Top
+
+3. binary_tree_traversal.py
+    - Traverse Binary Trees
+    - Without any order
+    - Pre order
+    - In order
+    - Post order
