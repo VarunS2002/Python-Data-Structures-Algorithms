@@ -30,3 +30,8 @@ These programs can be imported and used as modules in your programs.
     - Tower of Hanoi puzzle
     - Uses Stack DS from stack.py as Rods
     - Display Steps
+
+5. factorial.py
+    - Factorial of a Positive Integer
+    - Iteration (for & while)
+    - Recursion
