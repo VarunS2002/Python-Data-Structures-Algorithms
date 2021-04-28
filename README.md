@@ -29,3 +29,4 @@ These programs can be imported and used as modules in your programs.
 4. tower_of_hanoi_stack.py
     - Tower of Hanoi puzzle
     - Uses Stack DS from stack.py as Rods
+    - Display Steps
