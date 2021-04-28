@@ -29,25 +29,39 @@ class TowerOfHanoi:
         else:
             raise self.__AlreadySolvedError
 
-    def display(self) -> None:
+    def display(self, show_title: bool = True) -> None:
+        if show_title:
+            print("Source - Auxiliary - Destination")
         print(self.__source_rod, end=' - ')
         print(self.__auxiliary_rod, end=' - ')
         print(self.__destination_rod)
 
-    def __tower_of_hanoi(self, disks: int, source: Stack, destination: Stack, auxiliary: Stack) -> None:
+    def __tower_of_hanoi(self, disks: int, source: Stack, destination: Stack, auxiliary: Stack,
+                         display_steps: bool) -> None:
+        if disks == self.__no_of_disks and display_steps:
+            print("Source - Auxiliary - Destination")
         if disks == 1:
             source.pop()
             destination.push('disk 1')
+            if display_steps:
+                self.display(False)
         elif disks > 1:
-            self.__tower_of_hanoi(disks - 1, source=source, destination=auxiliary, auxiliary=destination)
+            self.__tower_of_hanoi(disks - 1, source=source, destination=auxiliary, auxiliary=destination,
+                                  display_steps=display_steps)
             source.pop()
             destination.push(f'disk {disks}')
-            self.__tower_of_hanoi(disks - 1, source=auxiliary, destination=destination, auxiliary=source)
+            if display_steps:
+                self.display(False)
+            self.__tower_of_hanoi(disks - 1, source=auxiliary, destination=destination, auxiliary=source,
+                                  display_steps=display_steps)
 
-    def start(self) -> None:
+    def solve(self, display_steps: bool = False) -> None:
         if self.__no_of_disks < 1:
             raise self.__EmptySourceRodError
-        self.__tower_of_hanoi(len(self.__source_rod), self.__source_rod, self.__destination_rod, self.__auxiliary_rod)
+        if display_steps:
+            print("Steps:")
+        self.__tower_of_hanoi(len(self.__source_rod), self.__source_rod, self.__destination_rod, self.__auxiliary_rod,
+                              display_steps)
         self.__solved = True
 
     def reset(self) -> None:
@@ -65,7 +79,7 @@ if __name__ == '__main__':
     tower.add_disks(2)
     print("Unsolved")
     tower.display()
-    tower.start()
+    tower.solve(display_steps=True)
     print("Solved")
     tower.display()
     tower.reset()
