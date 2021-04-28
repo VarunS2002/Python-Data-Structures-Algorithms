@@ -7,7 +7,7 @@ These programs can be imported and used as modules in your programs.
 #### Programs:
 
 1. matrix_operations.py
-    - Mathematical operations on matrices
+    - Mathematical operations on Matrices
     - Addition
     - Subtraction
     - Multiplication
@@ -25,3 +25,7 @@ These programs can be imported and used as modules in your programs.
     - Pre order
     - In order
     - Post order
+
+4. tower_of_hanoi_stack.py
+    - Tower of Hanoi puzzle
+    - Uses Stack DS from stack.py as Rods
