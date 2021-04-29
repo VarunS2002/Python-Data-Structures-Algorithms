@@ -35,3 +35,8 @@ These programs can be imported and used as modules in your programs.
     - Factorial of a Positive Integer
     - Iteration (for & while)
     - Recursion
+
+6. factors.py
+    - Factors of Non-Zero Integers
+    - Iteration (for & while)
+    - Recursion
