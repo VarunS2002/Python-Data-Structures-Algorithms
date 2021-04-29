@@ -46,3 +46,7 @@ These programs can be imported and used as modules in your programs.
     - nPr
     - nCr
     - Uses factorial.py for calculating factorials
+
+8. pascal_triangle.py
+    - Pascal's Triangle
+    - Uses permutations_combinations.py for calculating nCr
