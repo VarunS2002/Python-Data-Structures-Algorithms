@@ -40,3 +40,9 @@ These programs can be imported and used as modules in your programs.
     - Factors of Non-Zero Integers
     - Iteration (for & while)
     - Recursion
+
+7. permutations_combinations.py
+    - Permutations & Combinations
+    - nPr
+    - nCr
+    - Uses factorial.py for calculating factorials
