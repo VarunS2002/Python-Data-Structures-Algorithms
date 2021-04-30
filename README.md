@@ -28,8 +28,8 @@ These programs can be imported and used as modules in your programs.
 
 4. [tower_of_hanoi_stack.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/tower_of_hanoi_stack.py)
     - Tower of Hanoi puzzle
-    - Uses Stack DS from stack.py as Rods
     - Display Steps
+    - Uses Stack DS from stack.py as Rods
 
 5. [factorial.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/factorial.py)
     - Factorial of a Positive Integer
@@ -58,3 +58,9 @@ These programs can be imported and used as modules in your programs.
     - Selection Sort
     - Insertion Sort
     - Bubble Sort
+
+10. [sorting_time_comparison.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/sorting_time_comparison.py)
+    - Compare Time Complexity of Sorting Algorithms
+    - Show Scores
+    - Plot a Graph
+    - Uses sorting.py for sorting algorithms
