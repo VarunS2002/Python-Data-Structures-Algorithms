@@ -50,3 +50,11 @@ These programs can be imported and used as modules in your programs.
 8. [pascal_triangle.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/pascal_triangle.py)
     - Pascal's Triangle
     - Uses permutations_combinations.py for calculating nCr
+
+9. [sorting.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/sorting.py)
+    - Sorting List of Floats and/or Integers
+    - Quick Sort
+    - Merge Sort
+    - Selection Sort
+    - Insertion Sort
+    - Bubble Sort
