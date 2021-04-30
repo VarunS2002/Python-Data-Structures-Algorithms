@@ -29,8 +29,13 @@ class Factors:
         return factors
 
     @staticmethod
-    def factors_recursion(number: int, next_factor: Optional[int] = None, factors: Optional[list[int]] = None,
-                          negative_factors: bool = False) -> list[int]:
+    def factors_recursion(number: int) -> list[int]:
+        return Factors.__factors_recursion_implementation(number)
+
+    @staticmethod
+    def __factors_recursion_implementation(number: int, next_factor: Optional[int] = None,
+                                           factors: Optional[list[int]] = None,
+                                           negative_factors: bool = False) -> list[int]:
         if next_factor is None and factors is None:
             factors = []
             next_factor = abs(number)
@@ -46,7 +51,7 @@ class Factors:
             if negative_factors:
                 factors.append(-1 * next_factor)
             factors.append(next_factor)
-        return Factors.factors_recursion(number, next_factor - 1, factors, negative_factors)
+        return Factors.__factors_recursion_implementation(number, next_factor - 1, factors, negative_factors)
 
 
 if __name__ == '__main__':
