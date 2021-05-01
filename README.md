@@ -64,3 +64,9 @@ These programs can be imported and used as modules in your programs.
     - Show Scores
     - Plot a Graph
     - Uses sorting.py for sorting algorithms
+
+11. [searching.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/searching.py)
+    - Searching within a List
+    - Linear Search
+    - Binary Search
+    - Uses sorting.py for the sorting algorithm
