@@ -70,3 +70,10 @@ These programs can be imported and used as modules in your programs.
     - Linear Search
     - Binary Search
     - Uses sorting.py for the sorting algorithm
+
+12. [queue.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/queue.py)
+    - Queue Data Structure
+    - Single Ended Queue
+    - Double Ended Queue
+    - Enqueue
+    - Dequeue
