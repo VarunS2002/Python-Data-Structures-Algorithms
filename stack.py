@@ -16,6 +16,12 @@ class Stack:
     def __str__(self) -> str:
         return str(self._data)
 
+    def __eq__(self, other: 'Stack') -> bool:
+        if self.__class__ == other.__class__:
+            if self._data == other._data and self._size == other._size:
+                return True
+        return False
+
     def is_empty(self) -> bool:
         return self._size == 0
 
