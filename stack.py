@@ -1,5 +1,5 @@
 class Stack:
-    class __EmptyStackError(Exception):
+    class EmptyStackError(Exception):
         def __str__(self) -> str:
             return "Stack is empty."
 
@@ -27,7 +27,7 @@ class Stack:
 
     def top(self) -> object:
         if self.is_empty():
-            raise Stack.__EmptyStackError
+            raise Stack.EmptyStackError
         return self._data[-1]
 
     def push(self, element: object) -> None:
@@ -36,7 +36,7 @@ class Stack:
 
     def pop(self) -> object:
         if self.is_empty():
-            raise Stack.__EmptyStackError
+            raise Stack.EmptyStackError
         self._size -= 1
         return self._data.pop()
 

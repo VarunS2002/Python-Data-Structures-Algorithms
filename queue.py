@@ -2,7 +2,7 @@ from typing import Optional
 
 
 class _BaseQueue:
-    class _EmptyQueueError(Exception):
+    class EmptyQueueError(Exception):
         def __str__(self) -> str:
             return "Queue is empty."
 
@@ -36,7 +36,7 @@ class SingleEndedQueue(_BaseQueue):
 
     def first(self) -> Optional[object]:
         if self.is_empty():
-            raise self._EmptyQueueError
+            raise self.EmptyQueueError
         return self._data[self._front]
 
     def _resize(self, capacity: int) -> None:
@@ -57,7 +57,7 @@ class SingleEndedQueue(_BaseQueue):
 
     def dequeue_front(self) -> Optional[object]:
         if self.is_empty():
-            raise self._EmptyQueueError
+            raise self.EmptyQueueError
         element: Optional[object] = self._data[self._front]
         self._data[self._front] = None
         self._front = (self._front + 1) % len(self._data)
@@ -78,7 +78,7 @@ class DoubleEndedQueue(SingleEndedQueue):
 
     def last(self) -> Optional[object]:
         if self.is_empty():
-            raise self._EmptyQueueError
+            raise self.EmptyQueueError
         return self._data[self._back]
 
     def _resize(self, capacity: int) -> None:
@@ -104,7 +104,7 @@ class DoubleEndedQueue(SingleEndedQueue):
 
     def dequeue_back(self) -> Optional[object]:
         if self.is_empty():
-            raise self._EmptyQueueError
+            raise self.EmptyQueueError
         back: int = (self._front + self._size - 1) % len(self._data)
         element: Optional[object] = self._data[back]
         self._data[back] = None

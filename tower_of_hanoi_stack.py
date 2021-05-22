@@ -2,11 +2,11 @@ from stack import Stack
 
 
 class TowerOfHanoi:
-    class __EmptySourceRodError(Exception):
+    class EmptySourceRodError(Exception):
         def __str__(self) -> str:
             return "Number of disks in the source rod cannot be less than 1."
 
-    class __AlreadySolvedError(Exception):
+    class AlreadySolvedError(Exception):
         def __str__(self) -> str:
             return "The puzzle has already been solved. Please reset the puzzle before adding more disks."
 
@@ -27,7 +27,7 @@ class TowerOfHanoi:
             for disk_id in reversed(range(1, self.__no_of_disks + 1)):
                 self.__source_rod.push(f'disk {disk_id}')
         else:
-            raise self.__AlreadySolvedError
+            raise self.AlreadySolvedError
 
     def display(self, show_title: bool = True) -> None:
         if show_title:
@@ -57,7 +57,7 @@ class TowerOfHanoi:
 
     def solve(self, display_steps: bool = False) -> None:
         if self.__no_of_disks < 1:
-            raise self.__EmptySourceRodError
+            raise self.EmptySourceRodError
         if display_steps:
             print("Steps:")
         self.__tower_of_hanoi(len(self.__source_rod), self.__source_rod, self.__destination_rod, self.__auxiliary_rod,

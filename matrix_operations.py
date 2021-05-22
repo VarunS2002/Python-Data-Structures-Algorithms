@@ -5,7 +5,7 @@ dimensions = tuple[int, int]
 
 
 class MatrixOperations:
-    class __IncompatibleDimensionsError(Exception):
+    class IncompatibleDimensionsError(Exception):
         def __str__(self) -> str:
             return "Matrices are not compatible.\n" \
                    "No. of Columns in Matrix 1 have to be the same as No. of Rows in Matrix 2."
@@ -35,7 +35,7 @@ class MatrixOperations:
         compatible_dim: bool
         dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
         if not same_dim:
-            raise MatrixOperations.__IncompatibleDimensionsError
+            raise MatrixOperations.IncompatibleDimensionsError
         sum_m: matrix = [[0 for cols in range(dim_1[1])] for rows in range(dim_1[0])]
         for i in range(0, dim_1[0]):
             for j in range(0, dim_1[1]):
@@ -51,7 +51,7 @@ class MatrixOperations:
         compatible_dim: bool
         dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
         if not same_dim:
-            raise MatrixOperations.__IncompatibleDimensionsError
+            raise MatrixOperations.IncompatibleDimensionsError
         difference_m: matrix = [[0 for cols in range(dim_1[1])] for rows in range(dim_1[0])]
         for i in range(0, dim_1[0]):
             for j in range(0, dim_1[1]):
@@ -67,7 +67,7 @@ class MatrixOperations:
         compatible_dim: bool
         dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
         if not compatible_dim:
-            raise MatrixOperations.__IncompatibleDimensionsError
+            raise MatrixOperations.IncompatibleDimensionsError
         product_m: matrix = [[0 for cols in range(dim_2[1])] for rows in range(dim_1[0])]
         for i in range(0, dim_1[0]):
             for j in range(0, dim_2[1]):
