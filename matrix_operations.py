@@ -12,7 +12,7 @@ class MatrixOperations:
 
     @staticmethod
     def __get_dimensions(matrix_1: matrix, matrix_2: Optional[matrix] = None) -> \
-            Union[dimensions, tuple[dimensions, dimensions, bool, bool]]:
+            Union[tuple[dimensions, bool], tuple[dimensions, dimensions, bool, bool]]:
         rows_1: int = len(matrix_1)
         cols_1: int = len(matrix_1[0])
         dim_1: dimensions = (rows_1, cols_1)
@@ -24,7 +24,8 @@ class MatrixOperations:
             compatible_dim: bool = cols_1 == rows_2
             return dim_1, dim_2, same_dim, compatible_dim
         else:
-            return dim_1
+            square: bool = rows_1 == cols_1
+            return dim_1, square
 
     # noinspection PyUnusedLocal
     @staticmethod
@@ -86,7 +87,9 @@ class MatrixOperations:
     # noinspection PyUnusedLocal
     @staticmethod
     def transpose(matrix_1: matrix) -> matrix:
-        dim: dimensions = MatrixOperations.__get_dimensions(matrix_1)
+        dim: dimensions
+        square: bool
+        dim, square = MatrixOperations.__get_dimensions(matrix_1)
         transpose_m: matrix = [[0 for cols in range(dim[0])] for rows in range(dim[1])]
         for i in range(0, dim[0]):
             for j in range(0, dim[1]):
