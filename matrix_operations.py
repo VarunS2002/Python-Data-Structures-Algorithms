@@ -13,8 +13,8 @@ class MatrixOperations:
             return self.message
 
     @staticmethod
-    def __get_dimensions(matrix_1: matrix, matrix_2: Optional[matrix] = None) -> \
-            Union[tuple[dimensions, bool], tuple[dimensions, dimensions, bool, bool]]:
+    def get_dimensions(matrix_1: matrix, matrix_2: Optional[matrix] = None) -> \
+            Union[dimensions, tuple[dimensions, dimensions]]:
         rows_1: int = len(matrix_1)
         cols_1: int = len(matrix_1[0])
         dim_1: dimensions = (rows_1, cols_1)
@@ -22,12 +22,28 @@ class MatrixOperations:
             rows_2: int = len(matrix_2)
             cols_2: int = len(matrix_2[0])
             dim_2: dimensions = (rows_2, cols_2)
-            same_dim: bool = dim_1 == dim_2
-            compatible_dim: bool = cols_1 == rows_2
-            return dim_1, dim_2, same_dim, compatible_dim
+            return dim_1, dim_2
         else:
-            square: bool = rows_1 == cols_1
-            return dim_1, square
+            return dim_1
+
+    @staticmethod
+    def is_square(matrix_1: matrix) -> bool:
+        dim: dimensions = MatrixOperations.get_dimensions(matrix_1)
+        return dim[0] == dim[1]
+
+    @staticmethod
+    def have_same_dimensions(matrix_1: matrix, matrix_2: matrix) -> bool:
+        dim_1: dimensions
+        dim_2: dimensions
+        dim_1, dim_2 = MatrixOperations.get_dimensions(matrix_1, matrix_2)
+        return dim_1 == dim_2
+
+    @staticmethod
+    def have_multipliable_dimensions(matrix_1: matrix, matrix_2: matrix) -> bool:
+        dim_1: dimensions
+        dim_2: dimensions
+        dim_1, dim_2 = MatrixOperations.get_dimensions(matrix_1, matrix_2)
+        return dim_1[1] == dim_2[0]
 
     # noinspection PyUnusedLocal
     @staticmethod
@@ -42,10 +58,9 @@ class MatrixOperations:
     def addition(matrix_1: matrix, matrix_2: matrix) -> matrix:
         dim_1: dimensions
         dim_2: dimensions
-        same_dim: bool
-        compatible_dim: bool
-        dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
-        if not same_dim:
+        dim_1, dim_2 = MatrixOperations.get_dimensions(matrix_1, matrix_2)
+        have_same_dimensions: bool = MatrixOperations.have_same_dimensions(matrix_1, matrix_2)
+        if not have_same_dimensions:
             raise MatrixOperations.IncompatibleDimensionsError("Matrices are not compatible.\n"
                                                                "No. of Rows & Columns in Matrix 1 have to be the same "
                                                                "as No. of Rows & Columns in Matrix 2.")
@@ -60,10 +75,9 @@ class MatrixOperations:
     def subtraction(matrix_1: matrix, matrix_2: matrix) -> matrix:
         dim_1: dimensions
         dim_2: dimensions
-        same_dim: bool
-        compatible_dim: bool
-        dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
-        if not same_dim:
+        dim_1, dim_2 = MatrixOperations.get_dimensions(matrix_1, matrix_2)
+        have_same_dimensions: bool = MatrixOperations.have_same_dimensions(matrix_1, matrix_2)
+        if not have_same_dimensions:
             raise MatrixOperations.IncompatibleDimensionsError("Matrices are not compatible.\n"
                                                                "No. of Rows & Columns in Matrix 1 have to be the same "
                                                                "as No. of Rows & Columns in Matrix 2.")
@@ -78,10 +92,9 @@ class MatrixOperations:
     def multiplication(matrix_1: matrix, matrix_2: matrix) -> matrix:
         dim_1: dimensions
         dim_2: dimensions
-        same_dim: bool
-        compatible_dim: bool
-        dim_1, dim_2, same_dim, compatible_dim = MatrixOperations.__get_dimensions(matrix_1, matrix_2)
-        if not compatible_dim:
+        dim_1, dim_2 = MatrixOperations.get_dimensions(matrix_1, matrix_2)
+        have_multipliable_dimensions: bool = MatrixOperations.have_multipliable_dimensions(matrix_1, matrix_2)
+        if not have_multipliable_dimensions:
             raise MatrixOperations.IncompatibleDimensionsError("Matrices are not compatible.\n"
                                                                "No. of Columns in Matrix 1 have to be the same as No. "
                                                                "of Rows in Matrix 2.")
@@ -95,9 +108,7 @@ class MatrixOperations:
     # noinspection PyUnusedLocal
     @staticmethod
     def transpose(matrix_1: matrix) -> matrix:
-        dim: dimensions
-        square: bool
-        dim, square = MatrixOperations.__get_dimensions(matrix_1)
+        dim: dimensions = MatrixOperations.get_dimensions(matrix_1)
         transpose_m: matrix = [[0 for cols in range(dim[0])] for rows in range(dim[1])]
         for i in range(0, dim[0]):
             for j in range(0, dim[1]):
