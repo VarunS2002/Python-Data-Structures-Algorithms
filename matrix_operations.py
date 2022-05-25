@@ -28,6 +28,14 @@ class MatrixOperations:
 
     # noinspection PyUnusedLocal
     @staticmethod
+    def identity(dimension: int) -> matrix:
+        identity_m: matrix = [[0 for cols in range(dimension)] for rows in range(dimension)]
+        for i in range(0, dimension):
+            identity_m[i][i] = 1
+        return identity_m
+
+    # noinspection PyUnusedLocal
+    @staticmethod
     def addition(matrix_1: matrix, matrix_2: matrix) -> matrix:
         dim_1: dimensions
         dim_2: dimensions
@@ -117,3 +125,5 @@ if __name__ == '__main__':
     MatrixOperations.display(difference)
     print('Multiplication of Matrix 3 & 4:')
     MatrixOperations.display(product)
+    print('Identity Matrix:')
+    MatrixOperations.display(MatrixOperations.identity(3))
