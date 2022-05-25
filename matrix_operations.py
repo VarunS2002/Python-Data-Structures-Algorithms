@@ -89,6 +89,16 @@ class MatrixOperations:
 
     # noinspection PyUnusedLocal
     @staticmethod
+    def scalar_multiplication(matrix_1: matrix, scalar: float) -> matrix:
+        dim: dimensions = MatrixOperations.get_dimensions(matrix_1)
+        product_m: matrix = [[0 for cols in range(dim[1])] for rows in range(dim[0])]
+        for i in range(0, dim[0]):
+            for j in range(0, dim[1]):
+                product_m[i][j] = matrix_1[i][j] * scalar
+        return product_m
+
+    # noinspection PyUnusedLocal
+    @staticmethod
     def multiplication(matrix_1: matrix, matrix_2: matrix) -> matrix:
         dim_1: dimensions
         dim_2: dimensions
@@ -126,6 +136,7 @@ if __name__ == '__main__':
     m_2 = [[10, 20, 30], [40, 5, 6], [7, 8, 9]]
     m_3 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     m_4 = [[1, 2], [4, 5], [7, 8]]
+    scalar_value = 0.5
 
     addition = MatrixOperations.addition(m_1, m_2)
     difference = MatrixOperations.subtraction(m_1, m_2)
@@ -147,5 +158,7 @@ if __name__ == '__main__':
     MatrixOperations.display(difference)
     print('Multiplication of Matrix 3 & 4:')
     MatrixOperations.display(product)
+    print(f'Scalar Multiplication of Matrix 1 by {scalar_value}:')
+    MatrixOperations.display(MatrixOperations.scalar_multiplication(m_1, scalar_value))
     print('Identity Matrix:')
     MatrixOperations.display(MatrixOperations.identity(3))
