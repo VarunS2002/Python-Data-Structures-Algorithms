@@ -10,8 +10,10 @@ These programs can be imported and used as modules in your programs.
     - Mathematical operations on Matrices
     - Addition
     - Subtraction
+    - Scalar Multiplication
     - Multiplication
     - Transpose
+    - Identity
 
 2. [stack.py](https://github.com/VarunS2002/Python-Data-Structures-Algorithms/blob/master/stack.py)
     - Stack Data Structure
